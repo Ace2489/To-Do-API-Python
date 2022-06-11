@@ -13,7 +13,7 @@ def get_users():
 def register_user(user:User):
     Users.append(user)
 
-@app.delete("/user/me")
+@app.delete("/user/moi")
 def delete_user(user:User):
     Users.remove(user)  
 
