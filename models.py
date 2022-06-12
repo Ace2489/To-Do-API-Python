@@ -1,3 +1,6 @@
+from enum import Enum
+from tkinter import N
+from typing import Optional
 from uuid import UUID, uuid4
 from pydantic import BaseModel
 
@@ -9,8 +12,15 @@ class User(BaseModel):
     age:int
     id: UUID = uuid4()
 
+class Status(str, Enum):
+    Y = 'Not Completed'
+    N = 'Completed'
+
 class Task(BaseModel):
-    #id, Completed_stats
     id:UUID = uuid4()
+    desc:str  
+    status:Status = N
+    #Having issues getting the addition of tasks using description only, also the enum wahala
 
-
+class NewTaskType(BaseModel):
+    description: str 
