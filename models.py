@@ -13,13 +13,13 @@ class User(BaseModel):
     id: UUID = uuid4()
 
 class Status(str, Enum):
-    Y = 'Not Completed'
-    N = 'Completed'
+    N = "Not Completed"
+    Y = "Completed"
 
 class Task(BaseModel):
     id:UUID = uuid4()
     desc:str  
-    status:Status = N
+    status:Status = Status.N
     #Having issues getting the addition of tasks using description only, also the enum wahala
 
 class NewTaskType(BaseModel):
