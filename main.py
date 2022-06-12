@@ -1,5 +1,6 @@
 from hashlib import new
 from tkinter import N
+from uuid import UUID
 from fastapi import FastAPI
 from models import User, Task, NewTaskType, Status
 
@@ -31,3 +32,8 @@ def new_task(task:NewTaskType):
 def get_tasks():
     return Tasks
 
+@app.get("/task/{task_id}")
+def get_task_by_id(task_id: UUID):
+    for task in Tasks:
+        if task.id == task_id:
+            return task
