@@ -13,15 +13,18 @@ class User(BaseModel):
 
 
 class Status(str, Enum):
-    N = "Not Completed"
-    Y = "Completed"
+    true = "True"
+    false = "False"
 
 
 class Task(BaseModel):
     id: UUID = uuid4()
     desc: str
-    status: Status = Status.N
+    completed: Status = Status.false
 
 
 class NewTaskType(BaseModel):
     description: str
+
+class TaskUpdate(BaseModel):
+    completed:Status
