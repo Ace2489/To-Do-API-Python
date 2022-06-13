@@ -19,6 +19,7 @@ def get_users():
 def register_user(user: User):
     Users.append(user)
 
+
 @app.get("/task/")
 def get_tasks():
     return Tasks
@@ -33,8 +34,6 @@ def delete_user(user: User):
 def task_creator(task: NewTaskType):
     new_task = Task(desc=task.description)
     Tasks.append(new_task)
-
-
 
 
 @app.get("/task/{task_id}")
